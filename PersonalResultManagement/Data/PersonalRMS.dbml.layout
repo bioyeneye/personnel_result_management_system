@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="PersonalRMS">
+  <DataContextMoniker Name="/PersonalRMSDataContext" />
+  <nestedChildShapes>
+    <classShape Id="5fff181a-8f53-44fd-af84-ba187665d1ee" absoluteBounds="0.75, 0.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/PersonalRMSDataContext/Student" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5890759f-2506-4d5f-8425-5bbdc1df7c7a" absoluteBounds="0.765, 0.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b97a136b-7f05-4ba5-aaea-9221f1b3fa3b" absoluteBounds="3.875, 0.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/PersonalRMSDataContext/Security" />
+      <nestedChildShapes>
+        <elementListCompartment Id="366c313e-c16f-4c53-abfd-dc0027201a5c" absoluteBounds="3.8899999999999997, 0.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.28929768880208); (3.875 : 1.28929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PersonalRMSDataContext/Student/Student_Security" />
+      <nodes>
+        <classShapeMoniker Id="5fff181a-8f53-44fd-af84-ba187665d1ee" />
+        <classShapeMoniker Id="b97a136b-7f05-4ba5-aaea-9221f1b3fa3b" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="1bfc4982-2041-43b4-88f0-de93a1dcb05d" absoluteBounds="6, 5.125, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/PersonalRMSDataContext/FacultyTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="57ea0abf-273d-43f5-8ad1-339d906687fa" absoluteBounds="6.015, 5.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d902b768-ba47-4b19-891a-1ba4742205ac" absoluteBounds="4.375, 2.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/PersonalRMSDataContext/DepartmentTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e348c2e7-c0d8-41f0-93ea-43a679055e5c" absoluteBounds="4.39, 3.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.1875 : 5.125); (6.1875 : 4.1362939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PersonalRMSDataContext/FacultyTable/FacultyTable_DepartmentTable" />
+      <nodes>
+        <classShapeMoniker Id="1bfc4982-2041-43b4-88f0-de93a1dcb05d" />
+        <classShapeMoniker Id="d902b768-ba47-4b19-891a-1ba4742205ac" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="15ec4c5d-bd81-490f-8ba1-0afa057001c9" absoluteBounds="7, 0.5, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/PersonalRMSDataContext/LevelTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bcf14b62-c36d-4ff1-8433-d44274d72d72" absoluteBounds="7.015, 0.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a2b830cb-c5fa-434e-b433-c0fce1057cba" absoluteBounds="7.125, 2.25, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/PersonalRMSDataContext/OptionTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="56810e14-eab5-4929-bc83-320b36cfd327" absoluteBounds="7.14, 2.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3c8594be-b3e5-4d4d-b4a0-3e7994d3873e" absoluteBounds="3.5, 5.125, 2, 1.1939925130208327">
+      <DataClassMoniker Name="/PersonalRMSDataContext/SemesterTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3d9e9af7-822b-44af-9412-04edbe99a1d6" absoluteBounds="3.5150000000000006, 5.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6fe36ca8-c1cf-441f-afa5-cfb3b11118e0" absoluteBounds="0.75, 4.875, 2, 2.3478011067708344">
+      <DataClassMoniker Name="/PersonalRMSDataContext/CourseTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="95b55905-195b-4537-8731-d4fb4ab4e32d" absoluteBounds="0.76500000000000057, 5.335, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.5 : 5.72199625651042); (2.75 : 5.72199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PersonalRMSDataContext/SemesterTable/SemesterTable_CourseTable" />
+      <nodes>
+        <classShapeMoniker Id="3c8594be-b3e5-4d4d-b4a0-3e7994d3873e" />
+        <classShapeMoniker Id="6fe36ca8-c1cf-441f-afa5-cfb3b11118e0" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="c8358f55-3556-4b92-9175-d7f69effe073" absoluteBounds="0.75, 2.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/PersonalRMSDataContext/Result" />
+      <nestedChildShapes>
+        <elementListCompartment Id="286c49cc-b4f8-49dd-8983-c3bacd321283" absoluteBounds="0.76499999999999968, 3.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.75 : 4.875); (1.75 : 4.45359537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PersonalRMSDataContext/CourseTable/CourseTable_Result" />
+      <nodes>
+        <classShapeMoniker Id="6fe36ca8-c1cf-441f-afa5-cfb3b11118e0" />
+        <classShapeMoniker Id="c8358f55-3556-4b92-9175-d7f69effe073" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.75 : 2.27089680989583); (1.75 : 2.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/PersonalRMSDataContext/Student/Student_Result" />
+      <nodes>
+        <classShapeMoniker Id="5fff181a-8f53-44fd-af84-ba187665d1ee" />
+        <classShapeMoniker Id="c8358f55-3556-4b92-9175-d7f69effe073" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

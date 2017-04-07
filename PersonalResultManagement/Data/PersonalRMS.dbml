@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="PersonalRMS" Class="PersonalRMSDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-UVURQT6\SQLEXPRESS;Initial Catalog=PersonalRMS;Integrated Security=True" SettingsObjectName="PersonalResultManagement.Properties.Settings" SettingsPropertyName="PersonalRMSConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Student" Member="Students">
+    <Type Name="Student">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="matric_number" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[level]" Member="level" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="semeter" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Student_Security" Member="Securities" ThisKey="id" OtherKey="matric_number" Type="Security" />
+      <Association Name="Student_Result" Member="Results" ThisKey="id" OtherKey="student_id" Type="Result" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Security" Member="Securities">
+    <Type Name="Security">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="matric_number" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="question" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="answer" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Student_Security" Member="Student" ThisKey="matric_number" OtherKey="id" Type="Student" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FacultyTable" Member="FacultyTables">
+    <Type Name="FacultyTable">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="FacultyTable_DepartmentTable" Member="DepartmentTables" ThisKey="id" OtherKey="faculty_id" Type="DepartmentTable" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DepartmentTable" Member="DepartmentTables">
+    <Type Name="DepartmentTable">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="faculty_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="FacultyTable_DepartmentTable" Member="FacultyTable" ThisKey="faculty_id" OtherKey="id" Type="FacultyTable" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LevelTable" Member="LevelTables">
+    <Type Name="LevelTable">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="[level]" Member="level" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OptionTable" Member="OptionTables">
+    <Type Name="OptionTable">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SemesterTable" Member="SemesterTables">
+    <Type Name="SemesterTable">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="SemesterTable_CourseTable" Member="CourseTables" ThisKey="id" OtherKey="semester_id" Type="CourseTable" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CourseTable" Member="CourseTables">
+    <Type Name="CourseTable">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="title" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="code" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="dept_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="level_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="option_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="unit" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="semester_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="CourseTable_Result" Member="Results" ThisKey="id" OtherKey="course_id" Type="Result" />
+      <Association Name="SemesterTable_CourseTable" Member="SemesterTable" ThisKey="semester_id" OtherKey="id" Type="SemesterTable" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Result" Member="Results">
+    <Type Name="Result">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="course_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="student_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="score" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="CourseTable_Result" Member="CourseTable" ThisKey="course_id" OtherKey="id" Type="CourseTable" IsForeignKey="true" />
+      <Association Name="Student_Result" Member="Student" ThisKey="student_id" OtherKey="id" Type="Student" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
